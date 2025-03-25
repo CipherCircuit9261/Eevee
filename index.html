@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eevee & Evolutions</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        body {
+            font-family: 'Press Start 2P', cursive;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #d8a878;
+            color: #ffffff;
+            scroll-behavior: smooth;
+        }
+        header {
+            background-color: #b67b40;
+            padding: 20px;
+            transition: background-color 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        header:hover {
+            background-color: #a66a2c;
+        }
+        #logo {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            width: 60px;
+            height: 60px;
+        }
+        #eevee-img {
+            position: absolute;
+            left: 20px;
+            bottom: 20px;
+            width: 150px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #333;
+            transition: color 0.3s ease-in-out;
+        }
+        nav ul li a:hover {
+            color: #ffffff;
+        }
+        section {
+            padding: 20px;
+        }
+        .evolution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            max-width: 800px;
+            margin: auto;
+        }
+        .evolution {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .evolution:hover { transform: scale(1.1); }
+        .evolution:nth-child(1):hover { background-color: #76c4d3; }
+        .evolution:nth-child(2):hover { background-color: #f4d23c; }
+        .evolution:nth-child(3):hover { background-color: #f08030; }
+        .evolution:nth-child(4):hover { background-color: #ee99ac; }
+        .evolution:nth-child(5):hover { background-color: #705898; }
+        .evolution:nth-child(6):hover { background-color: #9bcc50; }
+        .evolution:nth-child(7):hover { background-color: #98d8d8; }
+        .evolution:nth-child(8):hover { background-color: #fdb9e9; }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .gallery img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .gallery img:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img id="logo" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png" alt="Eevee Logo">
+        <h1>Eevee & Its Evolutions</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About Eevee</a></li>
+                <li><a href="#evolutions">Evolutions</a></li>
+            </ul>
+        </nav>
+    </header>
+    <img id="eevee-img" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/133.png" alt="Eevee">
+    
+    <section id="about">
+        <h2>About Eevee</h2>
+        <p>Eevee is a Normal-type Pokémon known for its adaptability and ability to evolve into eight different forms, each representing a different elemental type.</p>
+    </section>
+    
+    <section id="evolutions">
+        <h2>Evolutions</h2>
+        <div class="evolution-grid">
+            <div class="evolution" onclick="scrollToInfo('vaporeon')">Vaporeon</div>
+            <div class="evolution" onclick="scrollToInfo('jolteon')">Jolteon</div>
+            <div class="evolution" onclick="scrollToInfo('flareon')">Flareon</div>
+            <div class="evolution" onclick="scrollToInfo('espeon')">Espeon</div>
+            <div class="evolution" onclick="scrollToInfo('umbreon')">Umbreon</div>
+            <div class="evolution" onclick="scrollToInfo('leafeon')">Leafeon</div>
+            <div class="evolution" onclick="scrollToInfo('glaceon')">Glaceon</div>
+            <div class="evolution" onclick="scrollToInfo('sylveon')">Sylveon</div>
+        </div>
+    </section>
+    
+    <section id="stats">
+        <h2>Stats</h2>
+        <div class="info" id="vaporeon" style="display:none;">
+            <h3>Vaporeon Stats</h3>
+            <p>Type: Water</p>
+            <p>HP: 130</p>
+            <p>Attack: 65</p>
+            <p>Defense: 60</p>
+            <p>Speed: 65</p>
+            <p>Special Attack: 110</p>
+            <p>Special Defense: 95</p>
+            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/134.png" alt="Vaporeon">
+        </div>
+        <div class="info" id="jolteon" style="display:none;">
+            <h3>Jolteon Stats</h3>
+            <p>Type: Electric</p>
+            <p>HP: 65</p>
+            <p>Attack: 65</p>
+            <p>Defense: 60</p>
+            <p>Speed: 130</p>
+            <p>Special Attack: 110</p>
+            <p>Special Defense: 95</p>
+            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/135.png" alt="Jolteon">
+        </div>
+        <div class="info" id="flareon" style="display:none;">
+            <h3>Flareon Stats</h3>
+            <p>Type: Fire</p>
+            <p>HP: 65</p>
+            <p>Attack: 130</p>
+            <p>Defense: 60</p>
+            <p>Speed: 65</p>
+            <p>Special Attack: 95</p>
+            <p>Special Defense: 110</p>
+            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/136.png" alt="Flareon">
+        </div>
+        <div class="info" id="espeon" style="display:none;">
+            <h3>Espeon Stats</h3>
+            <p>Type: Psychic</p>
+            <p>HP: 65</p>
+            <p>Attack: 65</p>
+            <p>Defense: 60</p>
+            <p>Speed: 110</p>
+            <p>Special Attack: 130</p>
+            <p>Special Defense: 95</p>
+            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/196.png" alt="Espeon">
+        </div>
+        <div class="info" id="umbreon" style="display:none;">
+            <h3>Umbreon Stats</h3>
+            <p>Type: Dark</p>
+            <p>HP: 95</p>
+            <p>Attack: 65</p>
+            <p>Defense: 110</p>
+            <p>Speed: 65</p>
+            <p>Special Attack: 60</p>
+            <p>Special Defense: 130</p>
+            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/197.png" alt="Umbreon">
+        </div>
+        <div class="info" id="leafeon" style="display:none;">
+            <h3>Leafeon Stats</h3>
+            <p>Type: Grass</p>
+            <p>HP: 65</p>
+            <p>Attack: 110</p>
+            <p>Defense: 130</p>
+            <p>Speed: 95</p>
+            <p>Special Attack: 60</p>
+            <p>Special Defense: 65</p>
+            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/470.png" alt="Leafeon">
+        </div>
+        <div class="info" id="glaceon" style="display:none;">
+            <h3>Glaceon Stats</h3>
+            <p>Type: Ice</p>
+            <p>HP: 65</p>
+            <p>Attack: 60</p>
+            <p>Defense: 110</p>
+            <p>Speed: 95</p>
+            <p>Special Attack: 130</p>
+            <p>Special Defense: 60</p>
+            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/471.png" alt="Glaceon">
+        </div>
+        <div class="info" id="sylveon" style="display:none;">
+            <h3>Sylveon Stats</h3>
+            <p>Type: Fairy</p>
+            <p>HP: 95</p>
+            <p>Attack: 65</p>
+            <p>Defense: 65</p>
+            <p>Speed: 60</p>
+            <p>Special Attack: 110</p>
+            <p>Special Defense: 130</p>
+            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/700.png" alt="Sylveon">
+        </div>
+    </section>
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery">
+            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/134.png" alt="Vaporeon">
+            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/135.png" alt="Jolteon">
+            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/136.png" alt="Flareon">
+            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/196.png" alt="Espeon">
+            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/197.png" alt="Umbreon">
+            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/470.png" alt="Leafeon">
+            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/471.png" alt="Glaceon">
+            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/700.png" alt="Sylveon">
+        </div>
+    </section>
+    <script>
+        // Function to show stats and scroll to the selected evolution's stats section
+        function scrollToInfo(evolution) {
+            // Hide all stat sections
+            const allStats = document.querySelectorAll('.info');
+            allStats.forEach(stat => {
+                stat.style.display = 'none';
+            });
+            
+            // Show the clicked evolution's stats
+            const selectedStats = document.getElementById(evolution);
+            if (selectedStats) {
+                selectedStats.style.display = 'block';
+                
+                // Scroll to the selected stats section
+                selectedStats.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    </script>
+</body>
+</html>
